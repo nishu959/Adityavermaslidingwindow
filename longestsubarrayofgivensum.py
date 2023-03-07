@@ -27,25 +27,26 @@ print(mx)
   
   #For negative numbers
   
+
 class Solution:
     def lenOfLongSubarr (self, arr, n, k) : 
         import sys
         m = {}
         s = 0
         mx =0
+        m[0] = 0
         #Complete the function
         for i in range(n):
+            
             s += arr[i]
             
-            if s==k:
-                mx = max(mx, i+1)
-                
+            
             if s-k in m:
-                mx = max(mx, i-m[s-k])
+                mx = max(mx, i-m[s-k]+ 1)
             
             
             if s not in m:
-                m[s] = i
+                m[s] = i + 1
         
       
         return mx
